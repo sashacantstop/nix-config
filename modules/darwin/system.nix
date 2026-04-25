@@ -24,7 +24,7 @@
     ollama chatgpt-cli claude-code
     telegram-desktop spotify
     _1password-cli _1password-gui
-    wikiman
+    wikiman tor
     ];
 
   fonts.packages = with pkgs; [

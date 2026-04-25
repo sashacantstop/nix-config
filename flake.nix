@@ -75,7 +75,7 @@
               ./home/sfaye/common.nix
               ./home/sfaye/linux.nix
               ./home/sfaye/editors/nixvim.nix
-	      ./home/sfaye/desktops/hyprland.nix
+      	      ./home/sfaye/desktops/hyprland.nix
             ]; };
           };
         }

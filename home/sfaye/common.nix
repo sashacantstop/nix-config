@@ -50,5 +50,6 @@
     htop
     jq        
     fd
+    tor-browser  
   ];
 }
