@@ -13,7 +13,7 @@
       maplocalleader = "\\"; 
     };
 
-### PTS ──────────────────────────────────────────────────────────────
+### OPTS ──────────────────────────────────────────────────────────────
     opts = {
       number = true;
       relativenumber = true;
@@ -115,6 +115,16 @@
       { mode = "n"; key = "<C-l>"; action = "<C-w>l"; }
       { mode = "n"; key = ";"; action = ":"; }
       { mode = "n"; key = ":"; action = ";"; }
+#      {
+#        mode = "c";
+#        key = "w!!";
+#        action = "w sudo tee % >dev/null";
+#        options = {
+#          remap = true;
+#          silent = false;
+#          desc = "write buffer with sudo if been idiot";
+#        };
+#      }
     ];
 
 ### PLUGINS  ────────────────────────────────────────────────────────
@@ -145,5 +155,8 @@
       gitsigns.enable = true;
       which-key.enable = true;
     };
+    extraConfigVim = ''
+      cnoremap w!! w !sudo tee % >/dev/null
+    '';
   };
 }       
