@@ -9,7 +9,7 @@
   users.users.sfaye = {
     name  = "sfaye";
     home  = "/Users/sfaye";
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
   };
 
   system.configurationRevision = self.rev or self.dirtyRev or null;

@@ -18,14 +18,18 @@
   environment.systemPackages = with pkgs; [ 
     kitty kitty-themes alacritty
     yazi eza fzf ripgrep tree bat
-    fastfetch btop htop darwin.top darwin.ps
+    fastfetch htop darwin.top darwin.ps
     wget curl syncthing ookla-speedtest qbittorrent
     git gh nodejs rustup go python3 
     ollama chatgpt-cli claude-code
     telegram-desktop spotify
     _1password-cli _1password-gui
     wikiman tor
-    ];
+  ];
+
+  environment.variables = {
+    TERM = "Alacritty";
+  };
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code

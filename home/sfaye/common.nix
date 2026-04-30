@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   home.username = "sfaye";
@@ -6,49 +6,39 @@
 
   programs.home-manager.enable = true;
 
-  # ------------------------------------------------------------------
-  # GIT  
-  # ------------------------------------------------------------------
+### --- GIT --------------------------------------------------------- 
   programs.git = {
-    enable        = true;
-    # userName    = "Sasha Faye";
-    # userEmail   = "you@example.com";
-    # signing.key = "";          # GPG or SSH key fingerprint
-    # signing.signByDefault = true;
+    enable = true;
+    let 
+      myKey = builtins.readFile /Users/sfaye/ssh/id_ed25519;
+    in 
+    {
+    settings = {
+      user = {
+        name = "sfaye";
+        username= "sashacantstop";
+        email = "sasha.faye175@gmail.com";
+      };
+      signing = {
+        signer = /Users/sfaye.openssh.authorizedKeys [ myKey ];
+        signByDefault = true;
+      };
+    };
     extraConfig = {
       init.defaultBranch = "main";
       pull.rebase        = true; 
     };
+    }
   };
 
-  # ------------------------------------------------------------------
-  # FISH — user-level config
-  # ------------------------------------------------------------------
-  programs.fish = {
-    enable = true;
-    shellAbbrs = {
-      ll  = "eza -lah";
-      la  = "eza -a";
-      lt  = "eza --tree";
-      gs  = "git status";
-      gp  = "git pull";
-      gd  = "git diff";
-      gl  = "git log --oneline --graph";
-      nrs = "nixos-rebuild switch --flake ."; 
-      drs = "darwin-rebuild switch --flake .";  
-    };
-    interactiveShellInit = ''
-      # Suppress the default fish greeting.
-      set fish_greeting ""
-    '';
-  };
+### --- FISH USER CONFIG --------------------------------------------
+#  programs.fish = {
+#    enable = true;
+#  };
 
-  # ------------------------------------------------------------------
-  # COMMON PACKAGES 
-  # ------------------------------------------------------------------
   home.packages = with pkgs; [
     htop
-    jq        
+    jq
     fd
     tor-browser  
   ];

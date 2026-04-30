@@ -9,4 +9,9 @@
     warn-dirty = false;
     sandbox = true;
   };
+
+  environment.variables = {
+    EDITOR = "nvim";
+    LANG = "en_EN.UTF-8";
+  };
 }

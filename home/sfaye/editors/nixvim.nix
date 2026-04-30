@@ -7,13 +7,13 @@
     viAlias = true;
     vimAlias = true;
 
-# ── GLOBALS  ──────────────────────────────────────────────────────────
+###  GLOBALS  ──────────────────────────────────────────────────────────
     globals = {
       mapleader = " ";
       maplocalleader = "\\"; 
     };
 
-#   ── OPTS ──────────────────────────────────────────────────────────────
+### PTS ──────────────────────────────────────────────────────────────
     opts = {
       number = true;
       relativenumber = true;
@@ -57,7 +57,7 @@
       updatetime = 200;
     };
     
-#   ── COLOURS ──────────────────────────────────────────────────────────
+### COLOURS ──────────────────────────────────────────────────────────
     colorschemes.tokyonight = {
       enable = true;
       settings = {
@@ -74,55 +74,40 @@
     };
 
 
-#   ── KEYMAPS ──────────────────────────────────────────────────────────
+### KEYMAPS ──────────────────────────────────────────────────────────
     keymaps = [
+    ### TELESCOPE -----------------------------------------------------
       {
-        mode = "n";
-        key = "<leader>w";
-        action = "<cmd>write<cr>";
-        options.desc = "Write Buffer";
-      }
-      {
-        mode = "n";
-        key = "<leader>q";
-        action = "<cmd>quit<cr>";
-        options.desc = "Quite Window";
-      }
-      {
-        mode = "n";   
-        key = "<leader>ff";
-        action = "<cmd>Telescope find_files<cr>";
+        mode = "n"; key = "<leader>ff"; action = "<cmd>Telescope find_files<cr>";
         options.desc = "Telescope Find File";
       }
       {
-        mode = "n";   
-        key = "<leader>fg";
-        action = "<cmd>Telescope live_grep<cr>";
+        mode = "n"; key = "<leader>fg"; action = "<cmd>Telescope live_grep<cr>";
         options.desc = "Tele Live Grep";
       }
       {
-        mode = "n";   
-        key = "<leader>cd";
-        action = "<cmd>Ex<cr>";
+        mode = "n"; key = "<leader>w"; action = "<cmd>write<cr>";
+        options.desc = "Write Buffer";
+      }
+      {
+        mode = "n"; key = "<leader>q"; action = "<cmd>quit<cr>";
+        options.desc = "Quite Window";
+      }
+      {
+        mode = "n"; key = "<leader>cd"; action = "<cmd>Ex<cr>";
         options.desc = "Change Dir";
       }
       {
-        mode = "n";   
-        key = "<leader>vv";
-        action = "<cmd>vsplit<cr>";
+        mode = "n"; key = "<leader>vv"; action = "<cmd>vsplit<cr>";
         options.desc = "split v";
       }
-      {
-        mode = "n";   
-        key = "<leader>hh";
-        action = "<cmd>split<cr>";
+      { 
+        mode = "n"; key = "<leader>hh"; action = "<cmd>split<cr>"; 
         options.desc = "split h";
       }
-      {
-        mode = "n";   
-        key = "<leader>wq";
-        action = "<cmd>write<cr><cmd>quit<cr>";
-        options.desc = "write and quit";
+      { 
+        mode = "n"; key = "<leader>wq"; action = "<cmd>write<cr><cmd>quit<cr>"; 
+        options.desc = "write and quit"; 
       }
       { mode = "n"; key = "<C-h>"; action = "<C-w>h"; }
       { mode = "n"; key = "<C-j>"; action = "<C-w>j"; }
@@ -131,7 +116,8 @@
       { mode = "n"; key = ";"; action = ":"; }
       { mode = "n"; key = ":"; action = ";"; }
     ];
-#   ── PLUGINS  ────────────────────────────────────────────────────────
+
+### PLUGINS  ────────────────────────────────────────────────────────
     plugins = {
       lsp = {
         enable = true;
@@ -148,7 +134,7 @@
       };
       lsp-lines.enable = true; 
       comment.enable = true;
-      nvim-autopairs.enable = true;   
+      nvim-autopairs.enable = true;
       treesitter = {
         enable = true;
         nixGrammars = true;
@@ -161,18 +147,3 @@
     };
   };
 }       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      

@@ -3,7 +3,5 @@
 {
   home.homeDirectory = "/home/sfaye";
 
-  imports = [
-    ./home-desktops/hyprland.nix;
-  ];
+  imports = [m./home-desktops/hyprland.nix; ];
 }
