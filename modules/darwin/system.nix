@@ -28,7 +28,7 @@
   ];
 
   environment.variables = {
-    TERM = "Alacritty";
+    TERM = "alacritty";
   };
 
   fonts.packages = with pkgs; [
