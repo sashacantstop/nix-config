@@ -41,4 +41,7 @@
 #    enable = true;
 #  };
 
+### --- KITTY CONF --------------------------------------------------
+  home.file.".config/alacritty".source = config.lib.mkOutOfStoreSymlink /Users/sfaye/.config/alacritty/alacritty.toml;
+  home.file.".vimrc".source = config.lib.mkOutOfStoreSymlink /Users/sfaye/.vimrc;
 }
