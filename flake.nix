@@ -32,7 +32,7 @@
       modules = [
         ./hosts/mac/mbp17-de-sasha/default.nix
         ./modules/darwin/system.nix
-        ./modules/shared/core.nix
+        ./modules/shared/sys-all.nix
 
         home-manager.darwinModules.home-manager
         {

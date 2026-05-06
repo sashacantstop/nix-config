@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   home.username = "sfaye";
@@ -42,6 +42,14 @@
 #  };
 
 ### --- KITTY CONF --------------------------------------------------
-  home.file.".config/alacritty".source = config.lib.mkOutOfStoreSymlink /Users/sfaye/.config/alacritty/alacritty.toml;
-  home.file.".vimrc".source = config.lib.mkOutOfStoreSymlink /Users/sfaye/.vimrc;
+  home.file.".config/alacritty".source = config.lib.file.mkOutOfStoreSymlink /Users/sfaye/.config/alacritty/alacritty.toml;
+  home.file.".vimrc".source = config.lib.file.mkOutOfStoreSymlink /Users/sfaye/.vimrc;
+  home.file.".config/kitty" = {
+    source = config.lib.file.mkOutOfStoreSymlink .config/kitty;
+    recursive = true;
+  };
+  home.file."Notes" = {
+    source =  config.lib.file.mkOutOfStoreSymlink /Users/sfaye/Notes;
+    recursive = true;
+  };
 }
