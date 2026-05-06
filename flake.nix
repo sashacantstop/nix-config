@@ -62,7 +62,7 @@
         ./hosts/pc/workstation/default.nix
         ./modules/nixos/base.nix
         ./modules/shared/core.nix
-      	./modules/nixos/desktops/hyprland.nix
+		./modules/nixos/desktops/hyprland.nix
 
         home-manager.nixosModules.home-manager
         {
