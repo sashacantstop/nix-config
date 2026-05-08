@@ -27,10 +27,6 @@
     wikiman tor
   ];
 
-  environment.variables = {
-    TERM = "alacritty";
-  };
-
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.dejavu-sans-mono
