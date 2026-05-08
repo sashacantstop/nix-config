@@ -16,7 +16,6 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -40,7 +39,7 @@
             useUserPackages = true;
             backupFileExtension = "bak";
             extraSpecialArgs = { inherit inputs; };
-            sharedModules = [ nixvim.homeManagerModules.nixvim ];
+            sharedModules = [ nixvim.homeModules.nixvim ];
             users.sfaye = { 
               imports = [
                 ./home/sfaye/common.nix
@@ -71,7 +70,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = { inherit inputs; };
-            sharedModules = [ nixvim.homeManagerModules.nixvim ];
+            sharedModules = [ nixvim.homeModules.nixvim ];
             users.sfaye = { 
               imports = [
                 ./home/sfaye/common.nix
@@ -100,7 +99,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = { inherit inputs; };
-            sharedModules = [ nixvim.homeManagerModules.nixvim ];
+            sharedModules = [ nixvim.homeModules.nixvim ];
             users.sfaye = { 
               imports = [
                 ./home/sfaye/common.nix
@@ -129,7 +128,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = { inherit inputs; };
-            sharedModules = [ nixvim.homeManagerModules.nixvim ];
+            sharedModules = [ nixvim.homeModules.nixvim ];
             users.sfaye = { 
               imports = [
                 ./home/sfaye/common.nix
