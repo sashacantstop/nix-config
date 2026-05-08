@@ -61,7 +61,6 @@
       modules = [
         ./hosts/PC/P16G1/default.nix
         ./modules/shared/sys-all.nix
-        ./modules/nixos/base.nix
         ./modules/nixos/desktops/hyprland.nix
 
         home-manager.nixosModules.home-manager
@@ -90,7 +89,6 @@
       modules = [
         ./hosts/PC/T440/default.nix
         ./modules/shared/sys-all.nix
-        ./modules/nixos/base.nix
         ./modules/nixos/desktops/hyprland.nix
 
         home-manager.nixosModules.home-manager
@@ -119,7 +117,6 @@
       modules = [
         ./hosts/PC/pc206/default.nix
         ./modules/shared/sys-all.nix
-        ./modules/nixos/base.nix
         ./modules/nixos/desktops/hyprland.nix
 
         home-manager.nixosModules.home-manager
