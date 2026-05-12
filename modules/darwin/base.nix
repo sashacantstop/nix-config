@@ -12,7 +12,6 @@
   programs.fish.enable = true;
   programs.zsh.enable = true;   
   programs.nix-index.enable = true;
-  programs.tmux.enable = true;
   programs.vim.enable = true;
 
   environment.systemPackages = with pkgs; [ 

@@ -7,7 +7,7 @@
     enable = true;
   };
 
-  home.file.".config/alacritty".source = config.lib.file.mkOutOfStoreSymlink /Users/sfaye/.config/alacritty/alacritty.toml;
+  home.file.".config/alacritty".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}"/.config/alacritty/alacritty.toml;
   home.file.".vimrc".source = config.lib.file.mkOutOfStoreSymlink /Users/sfaye/.vimrc;
   home.file.".config/kitty" = {
     source = config.lib.file.mkOutOfStoreSymlink .config/kitty;

@@ -1,5 +1,5 @@
 {
-  description = "ni/nixOS config - cross-platform Nix for macOS & NixOS";
+  description = "nix/nixOS config - cross-platform Nix for macOS & NixOS";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -11,7 +11,7 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";   
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixvim = {
@@ -28,8 +28,10 @@
       system = "x86_64-darwin";
       specialArgs = { inherit inputs self; };
       modules = [
-        ./hosts/mac/mbp17-de-sasha/default.nix
-        ./modules/darwin/system.nix
+        ./hosts/darwin/mbp17-de-sasha/default.nix
+        ./modules/darwin/base.nix
+        ./modules/darwin/packages.nix
+        ./modules/darwin/system-defaults.nix
         ./modules/shared/sys-all.nix
 
         home-manager.darwinModules.home-manager
@@ -55,88 +57,60 @@
     # ───────────────────────────────────────────────────────────────────
     # NixOS - Laptops with Hyprland
     # ───────────────────────────────────────────────────────────────────
-    nixosConfigurations."p16g1" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs self; };
-      modules = [
-        ./hosts/PC/P16G1/default.nix
-        ./modules/shared/sys-all.nix
-        ./modules/nixos/desktops/hyprland.nix
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = { inherit inputs; };
-            sharedModules = [ nixvim.homeModules.nixvim ];
-            users.sfaye = { 
-              imports = [
-                ./home/sfaye/common.nix
-                ./home/sfaye/linux.nix
-                ./home/sfaye/editors/nixvim.nix
-                ./home/sfaye/desktops/hyprland.nix
-              ]; 
-            };
-          };
-        }
-      ];
-    };
-
-    nixosConfigurations."t440" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs self; };
-      modules = [
-        ./hosts/PC/T440/default.nix
-        ./modules/shared/sys-all.nix
-        ./modules/nixos/desktops/hyprland.nix
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = { inherit inputs; };
-            sharedModules = [ nixvim.homeModules.nixvim ];
-            users.sfaye = { 
-              imports = [
-                ./home/sfaye/common.nix
-                ./home/sfaye/linux.nix
-                ./home/sfaye/editors/nixvim.nix
-                ./home/sfaye/desktops/hyprland.nix
-              ]; 
-            };
-          };
-        }
-      ];
-    };
-
-    nixosConfigurations."pc206" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs self; };
-      modules = [
-        ./hosts/PC/pc206/default.nix
-        ./modules/shared/sys-all.nix
-        ./modules/nixos/desktops/hyprland.nix
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = { inherit inputs; };
-            sharedModules = [ nixvim.homeModules.nixvim ];
-            users.sfaye = { 
-              imports = [
-                ./home/sfaye/common.nix
-                ./home/sfaye/linux.nix
-                ./home/sfaye/editors/nixvim.nix
-                ./home/sfaye/desktops/hyprland.nix
-              ]; 
-            };
-          };
-        }
-      ];
-    };
+#    nixosConfigurations."p16g1" = nixpkgs.lib.nixosSystem {
+#      system = "x86_64-linux";
+#      specialArgs = { inherit inputs self; };
+#      modules = [
+#        ./hosts/PC/P16G1/default.nix
+#        ./modules/shared/sys-all.nix
+#        ./modules/nixos/desktops/hyprland.nix
+#
+#        home-manager.nixosModules.home-manager
+#        {
+#          home-manager = {
+#            useGlobalPkgs = true;
+#            useUserPackages = true;
+#            extraSpecialArgs = { inherit inputs; };
+#            sharedModules = [ nixvim.homeModules.nixvim ];
+#            users.sfaye = { 
+#              imports = [
+#                ./home/sfaye/common.nix
+#                ./home/sfaye/linux.nix
+#                ./home/sfaye/editors/nixvim.nix
+#                ./home/sfaye/desktops/hyprland.nix
+#              ]; 
+#            };
+#          };
+#        }
+#      ];
+#    };
+#
+#    nixosConfigurations."t440" = nixpkgs.lib.nixosSystem {
+#      system = "x86_64-linux";
+#      specialArgs = { inherit inputs self; };
+#      modules = [
+#        ./hosts/PC/T440/default.nix
+#        ./modules/shared/sys-all.nix
+#        ./modules/nixos/desktops/hyprland.nix
+#
+#        home-manager.nixosModules.home-manager
+#        {
+#          home-manager = {
+#            useGlobalPkgs = true;
+#            useUserPackages = true;
+#            extraSpecialArgs = { inherit inputs; };
+#            sharedModules = [ nixvim.homeModules.nixvim ];
+#            users.sfaye = { 
+#              imports = [
+#                ./home/sfaye/common.nix
+#                ./home/sfaye/linux.nix
+#                ./home/sfaye/editors/nixvim.nix
+#                ./home/sfaye/desktops/hyprland.nix
+#              ]; 
+#            };
+#          };
+#        }
+#      ];
+#    };
   };
 }
