@@ -9,13 +9,13 @@
   security.pam.services.sudo_local.touchIdAuth = true;
   security.pam.services.sudo_local.reattach = true;
 
-  programs.fish.enable = true;
-  programs.zsh.enable = true;   
+  programs.zsh.enable = true;
   programs.nix-index.enable = true;
   programs.vim.enable = true;
+  programs.alacritty.enable = true;
 
-  environment.systemPackages = with pkgs; [ 
-    kitty kitty-themes alacritty
+  environment.systemPackages = with pkgs; [
+    alacritty alacritty.terminfo
     yazi eza fzf ripgrep tree bat
     fastfetch htop darwin.top darwin.ps
     wget curl syncthing ookla-speedtest qbittorrent
@@ -23,7 +23,7 @@
     ollama chatgpt-cli 
     telegram-desktop spotify
     _1password-cli _1password-gui
-    wikiman tor
+    tor
   ];
 
   fonts.packages = with pkgs; [
@@ -41,7 +41,7 @@
 
   users.users.sfaye = {
     name = "sfaye";
-    home = "/Users/sfaye";    
+    home = "/Users/sfaye";
   };
 
   nix.package = pkgs.nix;
