@@ -9,6 +9,10 @@
 
   home.file.".config/alacritty".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/alacritty/alacritty.toml";
   home.file.".vimrc".source = config.lib.file.mkOutOfStoreSymlink "/Users/sfaye/.vimrc";
+  home.file.".vim" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.vim";
+    recursive = true;
+  };
   home.file.".config/kitty" = {
     source = config.lib.file.mkOutOfStoreSymlink ".config/kitty";
     recursive = true;
@@ -20,6 +24,9 @@
 
   home.packages = with pkgs; [
     mas
+    alacritty
+    alacritty.terminfo
+    kitty
   ];
 }
 

@@ -12,7 +12,6 @@
   programs.zsh.enable = true;
   programs.nix-index.enable = true;
   programs.vim.enable = true;
-  programs.alacritty.enable = true;
 
   environment.systemPackages = with pkgs; [
     alacritty alacritty.terminfo

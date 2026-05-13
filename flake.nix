@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs";
 
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
@@ -16,10 +17,16 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nixvim, ... }: {
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nixvim, flake-parts, ... }: {
 
     # ───────────────────────────────────────────────────────────────────
     # macOS - nix-darwin
@@ -47,7 +54,7 @@
                 ./home/sfaye/common.nix
                 ./home/sfaye/darwin.nix
                 ./home/sfaye/editors/nixvim.nix
-              ]; 
+              ];
             };
           };
         }

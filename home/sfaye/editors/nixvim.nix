@@ -154,6 +154,9 @@
       lualine.enable = true;
       gitsigns.enable = true;
       which-key.enable = true;
+      markdown-preview.enable = true;
+      mini.enable = true;
+      nvim-web-devicons.enable = true;
     };
     extraConfigVim = ''
       cnoremap w!! w !sudo tee % >/dev/null
