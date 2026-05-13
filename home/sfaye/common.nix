@@ -1,4 +1,6 @@
-{ pkgs, config, ... }:
+# home/sfaye/common.nix
+
+{ pkgs, ... }:
 
 {
   home.username = "sfaye";
@@ -7,40 +9,23 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    htop
-    jq
-    fd
-    git
+    htop jq fd ripgrep fzf bat eza tree
   ];
+
 ### --- GIT --------------------------------------------------------- 
   programs.git = {
     enable = true;
-#     let 
-#       myKey = builtins.readFile /Users/sfaye/ssh/id_ed25519;
-#     in 
-#     {
-     settings = {
-       user = {
-         name = "sfaye";
-         username= "sashacantstop";
-         email = "sasha.faye175@gmail.com";
-       };
-#       signing = {
-#         signer = /Users/sfaye.openssh.authorizedKeys [ myKey ];
-#         signByDefault = true;
-#       };
-#     };
-     extraConfig = {
-       init.defaultBranch = "main";
-       pull.rebase        = true; 
-     };
+    userName = "sfaye";
+    userEmail = "sasha.faye175@gmail.com";
+
+    settings = {
+      init.defaultBranch = "main";
+      pull.rebase = true;
+      push.autoSetupRemote = true;
+      fetch.prune = true;
     };
   };
 
-### --- FISH USER CONFIG --------------------------------------------
-#  programs.fish = {
-#    enable = true;
-#  };
-
-### --- KITTY CONF --------------------------------------------------
+### --- SHELLS ------------------------------------------------------
+  programs.zsh.enable = true;
 }

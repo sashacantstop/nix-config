@@ -1,32 +1,36 @@
-{ config, pkgs, ... }:
+# home/sfaye/darwin.nix
 
+{ config, pkgs, ... }:
+let
+  h = config.home.homeDirectory; # = Users/sfaye
+in
 {
   home.homeDirectory = "/Users/sfaye";
 
-  programs.alacritty = {
-    enable = true;
-  };
+  home.packages = with pkgs; [ mas aerospace ];
 
-  home.file.".config/alacritty".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/alacritty/alacritty.toml";
-  home.file.".vimrc".source = config.lib.file.mkOutOfStoreSymlink "/Users/sfaye/.vimrc";
+  programs.kitty.enable = true;
+  programs.alacritty.enable = true;
+
+# --- ALACRITTY CONF ---
+  home.file.".config/alacritty/alacrittty.toml".source = config.lib.file.mkOutOfStoreSymlink "${h}/.config/alacritty/alacritty.toml";
+
+# --- VIM CONF ---
+  home.file.".vimrc".source = config.lib.file.mkOutOfStoreSymlink "${h}/.vimrc";
   home.file.".vim" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.vim";
-    recursive = true;
-  };
-  home.file.".config/kitty" = {
-    source = config.lib.file.mkOutOfStoreSymlink ".config/kitty";
-    recursive = true;
-  };
-  home.file."Notes" = {
-    source =  config.lib.file.mkOutOfStoreSymlink "/Users/sfaye/Notes";
+    source = config.lib.file.mkOutOfStoreSymlink "${h}/.vim";
     recursive = true;
   };
 
-  home.packages = with pkgs; [
-    mas
-    alacritty
-    alacritty.terminfo
-    kitty
-  ];
+# --- NOTES --- 
+  home.file."Notes" = {
+    source = config.lib.mkOutOfStoreSymlink "${h}/Notes";
+    recursive = true;
+  };
+
+# --- KITTY CONF ---
+  home.file.".config/kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "${h}/.config/kitty/kitty.conf";
+  home.file.".config/kitty/current-theme.conf".source = config.lib.file.mkOutOfStoreSymlink "${h}/.config/kitty/current-theme.conf";
+
 }
 

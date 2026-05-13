@@ -5,7 +5,7 @@
     enable = true;
     defaultEditor = true;
     viAlias = true;
-    vimAlias = true;
+    vimAlias = false;
 
 ###  GLOBALS  ──────────────────────────────────────────────────────────
     globals = {
@@ -61,7 +61,7 @@
     colorschemes.tokyonight = {
       enable = true;
       settings = {
-        style = "night";
+        style = "moon";
         terminal_colors = true;
         transparent = true;
         styles = {
@@ -115,16 +115,6 @@
       { mode = "n"; key = "<C-l>"; action = "<C-w>l"; }
       { mode = "n"; key = ";"; action = ":"; }
       { mode = "n"; key = ":"; action = ";"; }
-#      {
-#        mode = "c";
-#        key = "w!!";
-#        action = "w sudo tee % >dev/null";
-#        options = {
-#          remap = true;
-#          silent = false;
-#          desc = "write buffer with sudo if been idiot";
-#        };
-#      }
     ];
 
 ### PLUGINS  ────────────────────────────────────────────────────────
@@ -132,10 +122,10 @@
       lsp = {
         enable = true;
         servers = {
-          nil-ls.enable  = true;   # Nix
+          nil_ls.enable  = true;   # Nix
           clangd.enable  = true;   # C/C++
           pyright.enable = true;   # Python
-          rust-analyzer = {
+          rust_analyzer = {
             enable       = true;   # Rust
             installCargo = false;
             installRustc = false;
@@ -157,6 +147,7 @@
       markdown-preview.enable = true;
       mini.enable = true;
       nvim-web-devicons.enable = true;
+      
     };
     extraConfigVim = ''
       cnoremap w!! w !sudo tee % >/dev/null

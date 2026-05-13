@@ -19,7 +19,7 @@
     fastfetch htop darwin.top darwin.ps
     wget curl syncthing ookla-speedtest qbittorrent
     git gh nodejs rustup go python3 
-    ollama chatgpt-cli 
+    ollama chatgpt-cli
     telegram-desktop spotify
     _1password-cli _1password-gui
     tor
@@ -40,7 +40,6 @@
 
   users.users.sfaye = {
     name = "sfaye";
-    home = "/Users/sfaye";
   };
 
   nix.package = pkgs.nix;
